@@ -7,7 +7,7 @@
         <methods>
           <include name="end"/>
           <include name="connection"/>
-          <include name="tabGroups"/>
+          <include name="allTests"/>
         </methods>
       </class> <!-- messenger.android.MainApp -->
     </classes>
