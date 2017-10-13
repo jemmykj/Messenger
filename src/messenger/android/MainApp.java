@@ -39,13 +39,13 @@ public class MainApp {
 	
 	@Test
 	public void allTests() throws Exception {
-		//loginScreen();
-		/*verifyInbox();
+		loginScreen();
+		verifyInbox();
 		openMessages();
 		tabActive();
 		tabGroups();
 		tabCalls();
-*/		//peopleTab();
+		peopleTab();
 		gamesTab();
 		discoverTab();
 		
@@ -109,16 +109,17 @@ public class MainApp {
 	}
 
 	public void clickMessage(int i, List<WebElement> childElements) throws Exception {
-		System.out.println("first " + i + childElements.size());
+		//System.out.println("first " + i + childElements.size());
 
-		childElements.get(3).click();
+		childElements.get(i).click();
 
 		Boolean isBack = driver.findElements(By.id("com.facebook.orca:id/quicksilver_back_button")).size() > 0;
+		Boolean isUp = driver.findElements(By.id("com.facebook.orca:id/up")).size() > 0;
 		if (isBack) {
 			driver.findElement(By.id("com.facebook.orca:id/quicksilver_back_button")).click();
 			// System.out.println(driver.findElement(By.id("com.facebook.orca:id/up")).getClass());
 			Thread.sleep(2000);
-		} else {
+		} else if (isUp) {
 			driver.findElement(By.id("com.facebook.orca:id/up")).click();
 		}
 		/*
@@ -268,16 +269,16 @@ public class MainApp {
 		 * 
 		 * }
 		 */
-		System.out.println("game list size " + gameList.size());
+		//System.out.println("game list size " + gameList.size());
 		for (int i = 1; i < gameList.size(); i++) {
 			System.out.println("size " + gameList.size() + " i " + i);
 
-			System.out.println("i inside loop");
-			if (i % 3 == 0) {System.out.println("in");
+			//System.out.println("i inside loop");
+			if (i % 3 == 0) {//System.out.println("in");
 				clickMessage(i, gameList);
 			}
 			Thread.sleep(3000);
-			System.out.println("after click ");
+			//System.out.println("after click ");
 
 		}
 		verticalScrolling(3);
